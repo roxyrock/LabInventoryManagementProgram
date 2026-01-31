@@ -21,7 +21,16 @@ console.log(findProductIndex("flour"));
 console.log(findProductIndex("FloUr"));
 console.log(findProductIndex("Cheese"));
 
-function addProduct(product){
-  
-  
+function addProduct(product) {
+  let index = findProductIndex(product.name);
+  if (index != -1) {
+    inventory[index].quantity += product.quantity;
+    console.log(`${product.name} quantity updated`);
+  }
+  else {
+    inventory.push(product);
+    console.log(`${product.name} added to inventory`);
+  }
 }
+
+console.log(addProduct({ name: "Beans", quantity: 5 }));
